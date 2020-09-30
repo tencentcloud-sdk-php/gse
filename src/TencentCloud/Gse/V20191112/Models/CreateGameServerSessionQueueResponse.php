@@ -18,19 +18,19 @@ namespace TencentCloud\Gse\V20191112\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * StartMatchPlacement返回参数结构体
+ * CreateGameServerSessionQueue返回参数结构体
  *
- * @method GameServerSessionPlacement getGameServerSessionPlacement() 获取游戏服务器会话放置
- * @method void setGameServerSessionPlacement(GameServerSessionPlacement $GameServerSessionPlacement) 设置游戏服务器会话放置
+ * @method GameServerSessionQueue getGameServerSessionQueue() 获取游戏服务器会话队列
+ * @method void setGameServerSessionQueue(GameServerSessionQueue $GameServerSessionQueue) 设置游戏服务器会话队列
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class StartMatchPlacementResponse extends AbstractModel
+class CreateGameServerSessionQueueResponse extends AbstractModel
 {
     /**
-     * @var GameServerSessionPlacement 游戏服务器会话放置
+     * @var GameServerSessionQueue 游戏服务器会话队列
      */
-    public $GameServerSessionPlacement;
+    public $GameServerSessionQueue;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class StartMatchPlacementResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param GameServerSessionPlacement $GameServerSessionPlacement 游戏服务器会话放置
+     * @param GameServerSessionQueue $GameServerSessionQueue 游戏服务器会话队列
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,9 +54,9 @@ class StartMatchPlacementResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("GameServerSessionPlacement",$param) and $param["GameServerSessionPlacement"] !== null) {
-            $this->GameServerSessionPlacement = new GameServerSessionPlacement();
-            $this->GameServerSessionPlacement->deserialize($param["GameServerSessionPlacement"]);
+        if (array_key_exists("GameServerSessionQueue",$param) and $param["GameServerSessionQueue"] !== null) {
+            $this->GameServerSessionQueue = new GameServerSessionQueue();
+            $this->GameServerSessionQueue->deserialize($param["GameServerSessionQueue"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
