@@ -18,22 +18,19 @@ namespace TencentCloud\Gse\V20191112\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * UpdateFleetAttributes返回参数结构体
+ * DescribeAssetSystems返回参数结构体
  *
- * @method string getFleetId() 获取服务器舰队Id
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setFleetId(string $FleetId) 设置服务器舰队Id
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getAssetSupportSys() 获取生成包支持的操作系统类型列表
+ * @method void setAssetSupportSys(array $AssetSupportSys) 设置生成包支持的操作系统类型列表
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class UpdateFleetAttributesResponse extends AbstractModel
+class DescribeAssetSystemsResponse extends AbstractModel
 {
     /**
-     * @var string 服务器舰队Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array 生成包支持的操作系统类型列表
      */
-    public $FleetId;
+    public $AssetSupportSys;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -41,8 +38,7 @@ class UpdateFleetAttributesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $FleetId 服务器舰队Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $AssetSupportSys 生成包支持的操作系统类型列表
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -58,8 +54,13 @@ class UpdateFleetAttributesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FleetId",$param) and $param["FleetId"] !== null) {
-            $this->FleetId = $param["FleetId"];
+        if (array_key_exists("AssetSupportSys",$param) and $param["AssetSupportSys"] !== null) {
+            $this->AssetSupportSys = [];
+            foreach ($param["AssetSupportSys"] as $key => $value){
+                $obj = new AssetSupportSys();
+                $obj->deserialize($value);
+                array_push($this->AssetSupportSys, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

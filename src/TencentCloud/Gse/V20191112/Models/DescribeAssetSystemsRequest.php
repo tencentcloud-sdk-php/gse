@@ -18,28 +18,28 @@ namespace TencentCloud\Gse\V20191112\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteScalingPolicy请求参数结构体
+ * DescribeAssetSystems请求参数结构体
  *
- * @method string getFleetId() 获取服务器舰队ID
- * @method void setFleetId(string $FleetId) 设置服务器舰队ID
- * @method string getName() 获取扩缩容策略名称，最小长度为0，最大长度为1024
- * @method void setName(string $Name) 设置扩缩容策略名称，最小长度为0，最大长度为1024
+ * @method string getOsType() 获取生成包支持的操作系统类型
+ * @method void setOsType(string $OsType) 设置生成包支持的操作系统类型
+ * @method integer getOsBit() 获取生成包支持的操作系统位数
+ * @method void setOsBit(integer $OsBit) 设置生成包支持的操作系统位数
  */
-class DeleteScalingPolicyRequest extends AbstractModel
+class DescribeAssetSystemsRequest extends AbstractModel
 {
     /**
-     * @var string 服务器舰队ID
+     * @var string 生成包支持的操作系统类型
      */
-    public $FleetId;
+    public $OsType;
 
     /**
-     * @var string 扩缩容策略名称，最小长度为0，最大长度为1024
+     * @var integer 生成包支持的操作系统位数
      */
-    public $Name;
+    public $OsBit;
 
     /**
-     * @param string $FleetId 服务器舰队ID
-     * @param string $Name 扩缩容策略名称，最小长度为0，最大长度为1024
+     * @param string $OsType 生成包支持的操作系统类型
+     * @param integer $OsBit 生成包支持的操作系统位数
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class DeleteScalingPolicyRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FleetId",$param) and $param["FleetId"] !== null) {
-            $this->FleetId = $param["FleetId"];
+        if (array_key_exists("OsType",$param) and $param["OsType"] !== null) {
+            $this->OsType = $param["OsType"];
         }
 
-        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
-            $this->Name = $param["Name"];
+        if (array_key_exists("OsBit",$param) and $param["OsBit"] !== null) {
+            $this->OsBit = $param["OsBit"];
         }
     }
 }

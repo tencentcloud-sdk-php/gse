@@ -18,28 +18,28 @@ namespace TencentCloud\Gse\V20191112\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteScalingPolicy请求参数结构体
+ * UpdateFleetName请求参数结构体
  *
- * @method string getFleetId() 获取服务器舰队ID
- * @method void setFleetId(string $FleetId) 设置服务器舰队ID
- * @method string getName() 获取扩缩容策略名称，最小长度为0，最大长度为1024
- * @method void setName(string $Name) 设置扩缩容策略名称，最小长度为0，最大长度为1024
+ * @method string getFleetId() 获取服务器舰队 Id
+ * @method void setFleetId(string $FleetId) 设置服务器舰队 Id
+ * @method string getName() 获取服务器舰队名称，最小长度1，最大长度50
+ * @method void setName(string $Name) 设置服务器舰队名称，最小长度1，最大长度50
  */
-class DeleteScalingPolicyRequest extends AbstractModel
+class UpdateFleetNameRequest extends AbstractModel
 {
     /**
-     * @var string 服务器舰队ID
+     * @var string 服务器舰队 Id
      */
     public $FleetId;
 
     /**
-     * @var string 扩缩容策略名称，最小长度为0，最大长度为1024
+     * @var string 服务器舰队名称，最小长度1，最大长度50
      */
     public $Name;
 
     /**
-     * @param string $FleetId 服务器舰队ID
-     * @param string $Name 扩缩容策略名称，最小长度为0，最大长度为1024
+     * @param string $FleetId 服务器舰队 Id
+     * @param string $Name 服务器舰队名称，最小长度1，最大长度50
      */
     function __construct()
     {
