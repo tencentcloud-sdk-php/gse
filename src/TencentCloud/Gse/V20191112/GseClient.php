@@ -24,6 +24,7 @@ use TencentCloud\Gse\V20191112\Models as Models;
 
 /**
  * @method Models\AttachCcnInstancesResponse AttachCcnInstances(Models\AttachCcnInstancesRequest $req) 本接口（AttachCcnInstances）用于关联云联网实例。
+ * @method Models\CopyFleetResponse CopyFleet(Models\CopyFleetRequest $req) 本接口（CopyFleet）用于复制服务器舰队。
  * @method Models\CreateAliasResponse CreateAlias(Models\CreateAliasRequest $req) 本接口（CreateAlias）用于创建别名。
  * @method Models\CreateAssetResponse CreateAsset(Models\CreateAssetRequest $req) 本接口（CreateAsset）用于创建生成包。
 通过获取上传cos的临时密钥，将文件上传至cos，然后将生成包的zip名称下发给本接口完成资源创建。  
@@ -50,6 +51,8 @@ use TencentCloud\Gse\V20191112\Models as Models;
  * @method Models\DeleteScalingPolicyResponse DeleteScalingPolicy(Models\DeleteScalingPolicyRequest $req) 本接口（DeleteScalingPolicy）用于删除服务器舰队的扩缩容策略。
 通过服务器舰队ID和策略名称删除服务器舰队的扩缩容策略，只传递服务器舰队ID时，会将这个服务器舰队下的所有策略都删除。
 传递策略名称时，单独删除策略名称对应的策略。
+ * @method Models\DeleteTimerScalingPolicyResponse DeleteTimerScalingPolicy(Models\DeleteTimerScalingPolicyRequest $req) 本接口（DeleteTimerScalingPolicy）用于删除fleet下的定时器。
+
  * @method Models\DescribeAliasResponse DescribeAlias(Models\DescribeAliasRequest $req) 本接口（DescribeAlias）用于获取别名详情。
  * @method Models\DescribeAssetResponse DescribeAsset(Models\DescribeAssetRequest $req) 本接口（DescribeAsset）获取生成包信息。
  * @method Models\DescribeAssetSystemsResponse DescribeAssetSystems(Models\DescribeAssetSystemsRequest $req) 本接口（DescribeAssetSystems）用于获取生成包支持的操作系统。
@@ -74,6 +77,8 @@ use TencentCloud\Gse\V20191112\Models as Models;
  * @method Models\DescribePlayerSessionsResponse DescribePlayerSessions(Models\DescribePlayerSessionsRequest $req) 本接口（DescribePlayerSessions）用于获取玩家会话列表。
  * @method Models\DescribeRuntimeConfigurationResponse DescribeRuntimeConfiguration(Models\DescribeRuntimeConfigurationRequest $req) 本接口（DescribeRuntimeConfiguration）用于获取服务器舰队运行配置。
  * @method Models\DescribeScalingPoliciesResponse DescribeScalingPolicies(Models\DescribeScalingPoliciesRequest $req) 本接口（DescribeScalingPolicies）用于查询服务器舰队的动态扩缩容策略列表。
+ * @method Models\DescribeTimerScalingPoliciesResponse DescribeTimerScalingPolicies(Models\DescribeTimerScalingPoliciesRequest $req) 本接口（DescribeTimerScalingPolicies）用于查询fleet下的定时器列表。可以通过fleetid，定时器名称分页查询。
+
  * @method Models\DescribeUserQuotaResponse DescribeUserQuota(Models\DescribeUserQuotaRequest $req) 本接口（DescribeUserQuota）获取用户单个模块配额。
  * @method Models\DescribeUserQuotasResponse DescribeUserQuotas(Models\DescribeUserQuotasRequest $req) 本接口（DescribeUserQuotas）用于获取用户配额
  * @method Models\DetachCcnInstancesResponse DetachCcnInstances(Models\DetachCcnInstancesRequest $req) 本接口（DetachCcnInstances）用于解关联云联网实例。
@@ -184,8 +189,16 @@ if [AvailableGameServerSessions] >= [400] for [5] minutes, then scaling by [curr
 **PercentChangeInCapacity**
 
     按比例增加或减少的百分比。正值按比例扩容，负值按比例缩容；例如，值“-10”将按10%的比例缩容CVM实例。
+ * @method Models\PutTimerScalingPolicyResponse PutTimerScalingPolicy(Models\PutTimerScalingPolicyRequest $req) 本接口（PutTimerScalingPolicy）用于给fleet创建或更新定时器。
+
+填写字段timer_id，表示更新；不填字段timer_id表示新增。
+
  * @method Models\ResolveAliasResponse ResolveAlias(Models\ResolveAliasRequest $req) 本接口（ResolveAlias）用于获取别名当前指向的fleetId。
  * @method Models\SearchGameServerSessionsResponse SearchGameServerSessions(Models\SearchGameServerSessionsRequest $req) 本接口（SearchGameServerSessions）用于搜索游戏服务器会话列表。
+ * @method Models\SetServerReservedResponse SetServerReserved(Models\SetServerReservedRequest $req) 本接口（SetServerReserved）用于将异常的实例标记为保留，用于问题排查。
+
+字段ReserveValue：0默认值，不保留；1 保留
+
  * @method Models\SetServerWeightResponse SetServerWeight(Models\SetServerWeightRequest $req) 本接口（SetServerWeight）用于设置服务器权重。
  * @method Models\StartFleetActionsResponse StartFleetActions(Models\StartFleetActionsRequest $req) 本接口（StartFleetActions）用于启用服务器舰队自动扩缩容。
  * @method Models\StartGameServerSessionPlacementResponse StartGameServerSessionPlacement(Models\StartGameServerSessionPlacementRequest $req) 本接口（StartGameServerSessionPlacement）用于开始放置游戏服务器会话。
@@ -193,6 +206,8 @@ if [AvailableGameServerSessions] >= [400] for [5] minutes, then scaling by [curr
  * @method Models\StopGameServerSessionPlacementResponse StopGameServerSessionPlacement(Models\StopGameServerSessionPlacementRequest $req) 本接口（StopGameServerSessionPlacement）用于停止放置游戏服务器会话。
  * @method Models\UpdateAliasResponse UpdateAlias(Models\UpdateAliasRequest $req) 本接口（UpdateAlias）用于更新别名的属性。
  * @method Models\UpdateAssetResponse UpdateAsset(Models\UpdateAssetRequest $req) 本接口（UpdateAsset）用于修改生成包信息。
+ * @method Models\UpdateBucketAccelerateOptResponse UpdateBucketAccelerateOpt(Models\UpdateBucketAccelerateOptRequest $req) 本接口（UpdateBucketAccelerateOpt）用于开启cos全球加速。
+ * @method Models\UpdateBucketCORSOptResponse UpdateBucketCORSOpt(Models\UpdateBucketCORSOptRequest $req) 本接口（UpdateBucketCORSOpt）用于设置cos跨域访问。
  * @method Models\UpdateFleetAttributesResponse UpdateFleetAttributes(Models\UpdateFleetAttributesRequest $req) 本接口（UpdateFleetAttributes）用于更新服务器舰队属性。
  * @method Models\UpdateFleetCapacityResponse UpdateFleetCapacity(Models\UpdateFleetCapacityRequest $req) 本接口（UpdateFleetCapacity）用于更新服务器舰队容量配置。
  * @method Models\UpdateFleetNameResponse UpdateFleetName(Models\UpdateFleetNameRequest $req) 本接口（UpdateFleetName）用于更新服务器舰队名称。

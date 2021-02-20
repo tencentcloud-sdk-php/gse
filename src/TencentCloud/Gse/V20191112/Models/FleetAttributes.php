@@ -78,6 +78,18 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setBillingStatus(string $BillingStatus) 设置计费状态：未开通、已开通、异常、欠费隔离、销毁、解冻
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getTags() 获取标签列表，最大长度50组
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTags(array $Tags) 设置标签列表，最大长度50组
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getDataDiskInfo() 获取数据盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-32000GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，10-32000GB；容量以10为单位
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setDataDiskInfo(array $DataDiskInfo) 设置数据盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-32000GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，10-32000GB；容量以10为单位
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method DiskInfo getSystemDiskInfo() 获取系统盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-500GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，50-500GB；容量以1为单位
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSystemDiskInfo(DiskInfo $SystemDiskInfo) 设置系统盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-500GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，50-500GB；容量以1为单位
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class FleetAttributes extends AbstractModel
 {
@@ -175,6 +187,24 @@ class FleetAttributes extends AbstractModel
     public $BillingStatus;
 
     /**
+     * @var array 标签列表，最大长度50组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Tags;
+
+    /**
+     * @var array 数据盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-32000GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，10-32000GB；容量以10为单位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $DataDiskInfo;
+
+    /**
+     * @var DiskInfo 系统盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-500GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，50-500GB；容量以1为单位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $SystemDiskInfo;
+
+    /**
      * @param string $AssetId 生成包 Id
      * @param string $CreationTime 创建服务器舰队时间
      * @param string $Description 描述
@@ -203,6 +233,12 @@ class FleetAttributes extends AbstractModel
      * @param integer $GameServerSessionProtectionTimeLimit 时限保护超时时间，默认60分钟，最小值5，最大值1440
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $BillingStatus 计费状态：未开通、已开通、异常、欠费隔离、销毁、解冻
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Tags 标签列表，最大长度50组
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $DataDiskInfo 数据盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-32000GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，10-32000GB；容量以10为单位
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DiskInfo $SystemDiskInfo 系统盘，储存类型为 SSD 云硬盘（CLOUD_SSD）时，100-500GB；储存类型为高性能云硬盘（CLOUD_PREMIUM）时，50-500GB；容量以1为单位
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -281,6 +317,29 @@ class FleetAttributes extends AbstractModel
 
         if (array_key_exists("BillingStatus",$param) and $param["BillingStatus"] !== null) {
             $this->BillingStatus = $param["BillingStatus"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = [];
+            foreach ($param["Tags"] as $key => $value){
+                $obj = new Tag();
+                $obj->deserialize($value);
+                array_push($this->Tags, $obj);
+            }
+        }
+
+        if (array_key_exists("DataDiskInfo",$param) and $param["DataDiskInfo"] !== null) {
+            $this->DataDiskInfo = [];
+            foreach ($param["DataDiskInfo"] as $key => $value){
+                $obj = new DiskInfo();
+                $obj->deserialize($value);
+                array_push($this->DataDiskInfo, $obj);
+            }
+        }
+
+        if (array_key_exists("SystemDiskInfo",$param) and $param["SystemDiskInfo"] !== null) {
+            $this->SystemDiskInfo = new DiskInfo();
+            $this->SystemDiskInfo->deserialize($param["SystemDiskInfo"]);
         }
     }
 }
